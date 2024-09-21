@@ -22,7 +22,7 @@ const products = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch('https://nextjs-fullstack-ecommerce.onrender.com/products', {
+            const response = await fetch('http://localhost:8000/products', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -49,24 +49,41 @@ const products = () => {
 
     return (
 
-        <div className="row" style={{ padding: "5% 5%" }}>
+        <div className="row py-12 px-4 md:px-8">
 
-            {data.map((data => (
-                <div className="col s12 m3" key={data._id}>
-                    <div className="card">
-                        <div className="card-image">
-                            <img src={images[data._id]} alt={data.name} style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
-                            <span className="card-title">{data.name}</span>
-                        </div>
-                        <div className="card-content">
-                            <p>{data.desc}.</p>
-                        </div>
-                        <div className="card-action">
-                            <Link href={`/product/${data._id}?image=${encodeURIComponent(images[data._id])}`}>View details</Link>
+            <div className="flex flex-wrap -m-4">
+                {data.map((product) => (
+                    <div className="p-4 lg:w-1/4 md:w-1/2 sm:w-1/2" key={product._id}>
+                        <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+                            <div className="relative">
+                                <img
+                                    src={images[product._id]}
+                                    alt={product.name}
+                                    className="w-full h-48 object-cover transition-opacity duration-300 hover:opacity-80"
+                                />
+                                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
+                                    <span className="text-white text-lg font-semibold">{product.name}</span>
+                                </div>
+                            </div>
+                            <div className="p-4">
+                                <p className="text-gray-700 mb-3">{product.desc}</p>
+                            </div>
+                            <div className="p-4 border-t border-gray-200">
+                                <Link
+                                    href={`/product/${product._id}?image=${encodeURIComponent(images[product._id])}`}
+                                    className="text-red-500 inline-flex items-center transition-colors duration-300 hover:text-red-700"
+                                >
+                                    View details
+                                    <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M5 12h14"></path>
+                                        <path d="M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )))}
+                ))}
+            </div>
 
         </div>
 

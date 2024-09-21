@@ -5,55 +5,118 @@ const seller = () => {
 
     return (
 
-        <section className="text-gray-600 body-font">
-            <div className="container px-5 py-24 mx-auto">
-                <div className="flex flex-col text-center w-full mb-20">
-                    <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Sell Your Products With Us</h1>
-                    <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever the product you want to sell with us just register yourself as a seller, login after register successfully and then just add your products on our platform so that other users can placed orders of your products. Just visit the below steps to become a seller.</p>
+        <section className="bg-gray-50 py-20">
+            <div className="container mx-auto px-5">
+                <div className="text-center mb-16">
+                    <h1 className="text-4xl font-bold text-gray-800 mb-4">
+                        Sell Your Products With Us
+                    </h1>
+                    <p className="text-lg text-gray-600 mx-auto max-w-2xl">
+                        Join us as a seller, register your products, and let users start placing orders for them. Follow these steps to start your journey as a successful seller.
+                    </p>
                 </div>
-                <div className="flex flex-wrap">
-                    <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-                        <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Register as a seller</h2>
-                        <p className="leading-relaxed text-base mb-4">Firstly you have to register yourself as a seller after login from a user account.</p>
-                        <a className="text-red-500 inline-flex items-center">Learn More
-                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+                            Register as a Seller
+                        </h2>
+                        <p className="text-gray-600 mb-4">
+                            Sign up as a seller and log in with your account to access the seller dashboard.
+                        </p>
+                        <Link href={"/registerseller"} className="text-red-500 font-semibold inline-flex items-center">
+                            Learn More
+                            <svg
+                                fill="none"
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                className="w-4 h-4 ml-2"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
-                        </a>
+                        </Link>
                     </div>
-                    <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-                        <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Login as a seller</h2>
-                        <p className="leading-relaxed text-base mb-4">After registration login as a seller to add your products.</p>
-                        <a className="text-red-500 inline-flex items-center">Learn More
-                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+
+                    <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+                            Login as a Seller
+                        </h2>
+                        <p className="text-gray-600 mb-4">
+                            Once registered, log in to manage your products and profile.
+                        </p>
+                        <Link href={"/sellerlogin"} className="text-red-500 font-semibold inline-flex items-center">
+                            Learn More
+                            <svg
+                                fill="none"
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                className="w-4 h-4 ml-2"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
-                        </a>
+                        </Link>
                     </div>
-                    <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-                        <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Add your products</h2>
-                        <p className="leading-relaxed text-base mb-4">After login as a seller you can add your products with required data of your products.</p>
-                        <a className="text-red-500 inline-flex items-center">Learn More
-                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+
+                    <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+                            Add Your Products
+                        </h2>
+                        <p className="text-gray-600 mb-4">
+                            Upload your products with all necessary details and start selling.
+                        </p>
+                        <Link href={"/sellerlogin"} className="text-red-500 font-semibold inline-flex items-center">
+                            Learn More
+                            <svg
+                                fill="none"
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                className="w-4 h-4 ml-2"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
-                        </a>
+                        </Link>
                     </div>
-                    <div className="xl:w-1/4 lg:w-1/2 md:w-full px-8 py-6 border-l-2 border-gray-200 border-opacity-60">
-                        <h2 className="text-lg sm:text-xl text-gray-900 font-medium title-font mb-2">Sell your products</h2>
-                        <p className="leading-relaxed text-base mb-4">After your products added successfully on the platform any user can placed order for your products.</p>
-                        <a className="text-red-500 inline-flex items-center">Learn More
-                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+
+                    <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+                        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+                            Sell Your Products
+                        </h2>
+                        <p className="text-gray-600 mb-4">
+                            Once products are listed, buyers can start placing orders instantly.
+                        </p>
+                        <Link href={"/sellerlogin"} className="text-red-500 font-semibold inline-flex items-center">
+                            Learn More
+                            <svg
+                                fill="none"
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                className="w-4 h-4 ml-2"
+                                viewBox="0 0 24 24"
+                            >
+                                <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
-                        </a>
+                        </Link>
                     </div>
                 </div>
-                <Link href={'/registerseller'}>
-                    <button className="flex mx-auto mt-16 text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">
-                        Register
-                    </button>
-                </Link>
+
+                <div className="mt-16 text-center">
+                    <Link href={"/registerseller"}>
+                        <button className="bg-red-500 text-white py-3 px-8 rounded-lg shadow-lg hover:bg-red-600 transition duration-300 transform hover:scale-105">
+                            Register Now
+                        </button>
+                    </Link>
+                </div>
             </div>
         </section>
 

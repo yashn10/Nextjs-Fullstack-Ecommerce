@@ -51,6 +51,7 @@ const Signup = () => {
 
     }
 
+
     return (
 
         <div className="container">
@@ -60,27 +61,27 @@ const Signup = () => {
             <form method='post' className="col s12" style={{ padding: "2% 20%" }} onSubmit={submit}>
                 <div className="row">
                     <div className="input-field col s6">
-                        <input id="first_name" type="text" name='name' value={data.name} onChange={handleinput} className="validate" />
+                        <input id="first_name" type="text" name='name' value={data.name} onChange={handleinput} className="validate" required />
                         <label htmlFor="first_name">Name</label>
                     </div>
                     <div className="input-field col s6">
-                        <input id="email" type="email" name='email' value={data.email} onChange={handleinput} className="validate" />
+                        <input id="email" type="email" name='email' value={data.email} onChange={handleinput} className="validate" required />
                         <label htmlFor="email">Email</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s6">
-                        <input id="contact" type="number" name='phone' value={data.phone} onChange={handleinput} className="validate" />
+                        <input id="contact" type="number" name='phone' value={data.phone} onChange={handleinput} className="validate" required />
                         <label htmlFor="contact">Contact</label>
                     </div>
                     <div className="input-field col s6">
-                        <input id="password" type="password" name='password' value={data.password} onChange={handleinput} className="validate" />
+                        <input id="password" type="password" name='password' value={data.password} onChange={handleinput} className="validate" required />
                         <label htmlFor="password">Password</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s12">
-                        <textarea id="textarea2" className="materialize-textarea" name='address' value={data.address} onChange={handleinput} data-length="120"></textarea>
+                        <textarea id="textarea2" className="materialize-textarea" name='address' value={data.address} onChange={handleinput} data-length="120" required></textarea>
                         <label htmlFor="textarea2">Address</label>
                     </div>
                 </div>

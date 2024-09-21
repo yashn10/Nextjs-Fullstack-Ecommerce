@@ -56,33 +56,37 @@ const Login = () => {
     return (
 
         <div className="container">
-
-            <h4 style={{ textAlign: "center", paddingTop: "4%", fontSize: "xx-large" }}>Login Here</h4>
+            <h4 className="center-align" style={{ paddingTop: "4%", fontSize: "2rem" }}>Login Here</h4>
 
             <form className="col s12" style={{ padding: '2% 30%' }} onSubmit={submit}>
                 <div className="row">
                     <div className="input-field col s12">
-                        <input id="email" type="email" className="validate" name="email" value={data.email} onChange={handleinput} />
+                        <input id="email" type="email" className="validate" name="email" value={data.email} onChange={handleinput} required />
                         <label htmlFor="email">Email</label>
+                        <span className="helper-text" data-error="Please enter a valid email" data-success=""></span>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s12">
-                        <input id="password" type="password" className="validate" name="password" value={data.password} onChange={handleinput} />
+                        <input id="password" type="password" className="validate" name="password" value={data.password} onChange={handleinput} required />
                         <label htmlFor="password">Password</label>
+                        <span className="helper-text" data-error="Password is required" data-success=""></span>
                     </div>
                 </div>
-                <div className='row'>
-                    <span>Not Signup? Signup
-                        <Link href={'/signup'}> Here</Link>
-                    </span>
-                    <button className="btn waves-effect waves-light" style={{ float: "right" }} type="submit">
-                        Submit
-                        <i className="material-icons right">send</i>
-                    </button>
+                <div className="row">
+                    <div className="col s6">
+                        <span>Not Signed Up?
+                            <Link href={'/signup'}> Signup Here</Link>
+                        </span>
+                    </div>
+                    <div className="col s6 right-align">
+                        <button className="btn waves-effect waves-light" type="submit">
+                            Submit
+                            <i className="material-icons right">send</i>
+                        </button>
+                    </div>
                 </div>
             </form>
-
         </div>
 
     )

@@ -39,7 +39,7 @@ const sellerlogin = () => {
                 router.push('/addproduct');
                 console.log('Seller signed in successfully');
                 window.alert('Login successfull');
-                localStorage.setItem("authToken", res.token);
+                localStorage.setItem("Seller authToken", res.token);
                 console.log("Token:", localStorage.getItem("authToken"));
             } else {
                 console.log('Invalid credentials');
@@ -53,6 +53,7 @@ const sellerlogin = () => {
 
     }
 
+    
     return (
 
         <div className="container">

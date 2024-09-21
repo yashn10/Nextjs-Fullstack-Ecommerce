@@ -5,9 +5,7 @@ const addproduct = () => {
 
     const router = useRouter();
 
-    const [data, setdata] = useState({
-        name: '', price: '', image: '', catagory: '', desc: ''
-    })
+    const [data, setdata] = useState({name: '', price: '', image: '', catagory: '', desc: ''})
 
 
     const handleinput = (e) => {

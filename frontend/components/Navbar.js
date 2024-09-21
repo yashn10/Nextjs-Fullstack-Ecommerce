@@ -21,38 +21,52 @@ const Navbar = () => {
 
 
     const NavBar = () => {
-        if (login) {
-            return (
-                <nav>
-                    <div className="nav-wrapper">
-                        <Link href={'/'} className="brand-logo">Logo</Link>
-                        <ul id="nav-mobile" className="right hide-on-med-and-down">
-                            <li><Link href={'/'}>Home</Link></li>
-                            <li><Link href={'/products'}>Products</Link></li>
-                            <li><Link href={'/seller'}>Become Seller</Link></li>
-                            <li><Link href={'/contact'} >Contact</Link></li>
-                            <li><Link href={'/'} onClick={logout}>Logout</Link></li>
-                        </ul>
-                    </div>
-                </nav>
-            )
-        } else {
-            return (
-                <nav>
-                    <div className="nav-wrapper">
-                        <Link href={'/'} className="brand-logo">Logo</Link>
-                        <ul id="nav-mobile" className="right hide-on-med-and-down">
-                            <li><Link href={'/'}>Home</Link></li>
-                            <li><Link href={'/products'}>Products</Link></li>
-                            <li><Link href={'/login'}>Login</Link></li>
-                            <li><Link href={'/signup'}>Signup</Link></li>
-                            <li><Link href={'/contact'} >Contact</Link></li>
-                        </ul>
-                    </div>
-                </nav>
-            )
-        }
-    }
+        return (
+            <nav className="bg-gray-900 text-white">
+                <div className="container mx-auto px-28 flex justify-between items-center">
+                    <Link href={'/'} className="text-2xl font-bold">
+                        Logo
+                    </Link>
+                    <ul className="flex space-x-6">
+                        <li>
+                            <Link href={'/'} className="hover:text-red-500">Home</Link>
+                        </li>
+                        <li>
+                            <Link href={'/products'} className="hover:text-red-500">Products</Link>
+                        </li>
+                        {login ? (
+                            <>
+                                <li>
+                                    <Link href={'/cart'} className="hover:text-red-500">Cart</Link>
+                                </li>
+                                <li>
+                                    <Link href={'/seller'} className="hover:text-red-500">Become Seller</Link>
+                                </li>
+                                <li>
+                                    <Link href={'/contact'} className="hover:text-red-500">Contact</Link>
+                                </li>
+                                <li>
+                                    <Link href={'/'} onClick={logout} className="hover:text-red-500">Logout</Link>
+                                </li>
+                            </>
+                        ) : (
+                            <>
+                                <li>
+                                    <Link href={'/login'} className="hover:text-red-500">Login</Link>
+                                </li>
+                                <li>
+                                    <Link href={'/signup'} className="hover:text-red-500">Signup</Link>
+                                </li>
+                                <li>
+                                    <Link href={'/contact'} className="hover:text-red-500">Contact</Link>
+                                </li>
+                            </>
+                        )}
+                    </ul>
+                </div>
+            </nav>
+        );
+    };
 
 
     return (

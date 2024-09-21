@@ -54,6 +54,7 @@ const Contact = () => {
 
     }
 
+
     return (
 
         <div className="container">
@@ -63,23 +64,23 @@ const Contact = () => {
             <form className="col s12" style={{ padding: "2% 20%" }} onSubmit={submit}>
                 <div className="row">
                     <div className="input-field col s6">
-                        <input id="name" type="text" name='name' value={data.name} onChange={handle} className="validate" />
+                        <input id="name" type="text" name='name' value={data.name} onChange={handle} className="validate" required />
                         <label htmlFor="name">Name</label>
                     </div>
                     <div className="input-field col s6">
-                        <input id="contact" type="number" name='phone' value={data.phone} onChange={handle} className="validate" />
+                        <input id="contact" type="number" name='phone' value={data.phone} onChange={handle} className="validate" required />
                         <label htmlFor="contact">Contact</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s12">
-                        <input id="email" type="email" name='email' value={data.email} onChange={handle} className="validate" />
+                        <input id="email" type="email" name='email' value={data.email} onChange={handle} className="validate" required />
                         <label htmlFor="email">Email</label>
                     </div>
                 </div>
                 <div className="row">
                     <div className="input-field col s12">
-                        <textarea id="textarea2" className="materialize-textarea" name='message' value={data.message} onChange={handle} data-length="120"></textarea>
+                        <textarea id="textarea2" className="materialize-textarea" name='message' value={data.message} onChange={handle} data-length="120" required ></textarea>
                         <label htmlFor="textarea2">Textarea</label>
                     </div>
                     <button className="btn waves-effect waves-light" style={{ float: "right" }} type="submit">
