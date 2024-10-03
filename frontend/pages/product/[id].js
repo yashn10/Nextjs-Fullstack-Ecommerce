@@ -1,18 +1,22 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../store/cartSlice';
 
 const ProductDetail = () => {
 
     const router = useRouter();
     const { id, image } = router.query;
+    const dispatch = useDispatch();
 
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [quantity, setQuantity] = useState(1); // Initialize quantity
 
 
     useEffect(() => {
-        const getproduct = async () => {
+        const getProduct = async () => {
             try {
                 const response = await fetch(`http://localhost:8000/products/${id}`);
                 if (!response.ok) {
@@ -29,12 +33,20 @@ const ProductDetail = () => {
         };
 
         if (id) {
-            getproduct();
+            getProduct();
         }
     }, [id]);
 
 
-    const deleteproduct = async () => {
+    const handleAddToCart = () => {
+        if (product) {
+            dispatch(addToCart({ id: product.id, name: product.name, image, price: product.price, quantity: parseInt(quantity) }));
+            alert("Product added to cart!");
+        }
+    };
+
+
+    const deleteProduct = async () => {
         try {
             const response = await fetch(`http://localhost:8000/product/${id}`, {
                 method: "DELETE",
@@ -57,9 +69,8 @@ const ProductDetail = () => {
         }
     };
 
-
     if (loading) {
-        return <h1 style={{ "padding": "20% 20%" }}>Loading....</h1>;
+        return <h1 style={{ padding: "20% 20%" }}>Loading....</h1>;
     }
 
     if (error) {
@@ -69,7 +80,7 @@ const ProductDetail = () => {
     if (!product) {
         return <h1>No product found</h1>;
     }
-    
+
 
     return (
 
@@ -85,7 +96,7 @@ const ProductDetail = () => {
                                 style={{ width: '100%', height: '400px', objectFit: 'cover' }}
                             />
                             <span className="card-title">{product.name}</span>
-                            <a className="btn-floating halfway-fab waves-effect waves-light red">
+                            <a className="btn-floating halfway-fab waves-effect waves-light red" onClick={handleAddToCart}>
                                 <i className="material-icons">add</i>
                             </a>
                         </div>
@@ -103,20 +114,20 @@ const ProductDetail = () => {
                                 type="number"
                                 min="1"
                                 placeholder="Select quantity"
-                                // value={quantity}
+                                value={quantity} // Set value to state
                                 onChange={(e) => setQuantity(e.target.value)}
                             />
                             <label htmlFor="quantity">Quantity</label>
                         </div>
                         <div className="row">
-                            <button className="btn waves-effect waves-light blue" type="submit">
-                                Submit
-                                <i className="material-icons right">send</i>
+                            <button className="btn waves-effect waves-light blue" type="submit" onClick={handleAddToCart}>
+                                Add to Cart
+                                <i className="material-icons right">shopping_cart</i>
                             </button>
                             <button
                                 className="btn waves-effect waves-light red"
                                 style={{ marginLeft: '10px' }}
-                                onClick={deleteproduct}
+                                onClick={deleteProduct}
                             >
                                 Delete
                             </button>
@@ -127,6 +138,8 @@ const ProductDetail = () => {
         </div>
 
     );
+
 };
+
 
 export default ProductDetail;
