@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../store/cartSlice';
+import { addToCart } from '../../store/cartSlice';
 
 const ProductDetail = () => {
 
